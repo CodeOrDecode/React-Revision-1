@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React Template</title>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+<script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+<script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel">
+    function SuperheroCard(props) {
+        return <>
+            <h1>{props.name}</h1>
+            <img style={{ width: "200px" }} src={props.url} alt="spider" />
+            <p>{props.married ? "yes married" : "not married"}</p>
+
+            {props.superpower.map((ele, index) => {
+                return <li key={index}>{ele}</li>
+            })}
+            <p>city is {props.address.city}</p>
+            <p>pin is {props.address.pin}</p>
+
+        </>;
+    }
+
+    // Pass the following props here and the same should be displayed in Superhero Card
+    // name - String
+    // imageUrl - String
+    // isMarried - Boolean
+    // Superpowers - Array
+    // address - Object
+
+
+
+
+    function App() {
+        return (
+            <>
+                <SuperheroCard name="Spiderman" url="https://th.bing.com/th/id/R.0a2d26cbca03b25410fe3350ee614263?rik=kmoDJ1AXud3toA&riu=http%3a%2f%2fwallsdesk.com%2fwp-content%2fuploads%2f2016%2f11%2fSpider-Man-Computer-Wallpaper.jpg&ehk=MHg7aFzaI%2bnDPCuNHfVbsx5IVO%2fiVgEmXMLQPXelV4Y%3d&risl=&pid=ImgRaw&r=0" married={false} superpower={["Superhuman Strength", "Spider-Sense", "Web-Slinging", "Genius-Level Intellect"]} address={{ city: "New York", pin: 100145 }} />
+            </>
+        );
+    }
+
+    let reactRoot = ReactDOM.createRoot(document.getElementById("root"));
+    reactRoot.render(<App />);
+</script>
+
+</html>

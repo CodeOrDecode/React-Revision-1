@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React Template</title>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+<script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+<script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel">
+
+
+    // Pass the following props here and the same should be displayed in Superhero Card
+    // name - String
+    // imageUrl - String
+    // isMarried - Boolean
+    // Superpowers - Array
+    // address - Object
+
+    function Con1(props) {
+        return <div style={{background:"red"}}>{props.children}</div>
+    }
+    function Con2() {
+        return <p>this is con2</p>
+    }
+    function Con3() {
+        return <p>this is con3</p>
+    }
+
+    function App() {
+        return (
+            <>
+                <Con1>
+                    <Con2 />
+                    <Con3 />
+                </Con1>
+
+
+            </>
+        );
+    }
+
+    let reactRoot = ReactDOM.createRoot(document.getElementById("root"));
+    reactRoot.render(<App />);
+</script>
+
+</html>
